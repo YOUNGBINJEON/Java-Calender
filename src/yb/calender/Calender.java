@@ -39,7 +39,12 @@ public class Calender {
 		}
 		
 		int count = 7 - weekday;
-		int delim = count;
+		int delim = (count < 7) ? count : 0;
+		if(count <7) {
+			delim =count;
+		}else {
+			delim =0;
+		}
 		// print first line
 		for(int i = 1; i <= count; i++) {
 			System.out.printf("%3d", i);
