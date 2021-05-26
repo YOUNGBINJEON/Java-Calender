@@ -70,7 +70,7 @@ public class Calender {
 		// 
 		int syear = 1970;
 		
-		final int STANDARD_WEEKDATY = 3; // 1970/Jan/1st = Thrusday
+		final int STANDARD_WEEKDAY = 4; // 1970/Jan/1st = Thrusday
 		
 		int count = 0;
 		
@@ -83,9 +83,9 @@ public class Calender {
 			int delta = getMaxDaysOfMonth(year, i);
 			count += delta;
 		}
-		count += day;
+		count += day - 1;
 		
-		int weekday = (count + STANDARD_WEEKDATY) % 7;
+		int weekday = (count + STANDARD_WEEKDAY) % 7;
 		return weekday;
 	}
 
