@@ -38,7 +38,7 @@ public class Prompt {
 		
 		int month = 1;
 		int year = 0;
-		int weekday = 0; 
+		
 		while(true) {
 			
 			System.out.println("년도를 입력하세요(exit:-1)");
@@ -50,18 +50,13 @@ public class Prompt {
 			System.out.println("달을 입력하세요");
 			System.out.print(PROMPT);
 			month = scanner.nextInt();
-
-			System.out.println("첫째 날의 요일을 입력하세요(일, 월, 화, 수, 목, 금, 토)");
-			System.out.print(PROMPT);
-			String str_weekday = scanner.next();
-			weekday = parseDay(str_weekday);
 			
 			
 			if(month > 12 || month < 1) {
 				System.out.println("잘못된 입력입니다.");
 				continue;
 			}
-			cal.printCalender(year, month, weekday);
+			cal.printCalender(year, month);
 			
 		}
 		System.out.println("종료합니다.");
