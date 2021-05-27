@@ -47,7 +47,7 @@ public class Prompt {
 		Calender cal = new Calender();	
 		
 		while(true) {
-			
+			System.out.println("명령(1,2,3,h,q)");
 			String cmd = scanner.next();
 			if(cmd.equals("1")) {
 				cmdRegister();
