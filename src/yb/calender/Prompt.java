@@ -53,7 +53,7 @@ public class Prompt {
 			if(cmd.equals("1")) {
 				cmdRegister(scanner, cal);
 			} else if(cmd.equals("2")) {
-				cmdSearch();
+				cmdSearch(scanner, cal);
 			} else if(cmd.equals("3")) {
 				cmdCal(scanner, cal);
 			} else if(cmd.equals("h")) {
@@ -91,8 +91,18 @@ public class Prompt {
 	}
 	
 
-	private void cmdSearch() {
-		// TODO Auto-generated method stub
+	private void cmdSearch(Scanner s, Calender c) {
+		System.out.println("[검색]");
+		System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd).");
+		String date = s.next();
+		String plan ="";
+		try {
+			plan = c.searchPlan(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			System.err.println("일정 검색 중 오류가 발생했습니다.");
+		}
+		System.out.println(plan);
 		
 	}
 
