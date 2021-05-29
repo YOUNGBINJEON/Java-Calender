@@ -17,30 +17,52 @@ public class Prompt {
 	
 	private final static String PROMPT ="cal> ";
 	
+//	public int parseDay(String week) {
+//		if(week.equals("일")) {
+//			return 0;
+//		}
+//		else if(week.equals("월")) {
+//			return 1;
+//		}
+//		else if(week.equals("화")) {
+//			return 2;
+//		}
+//		else if(week.equals("수")) {
+//			return 3;
+//		}
+//		else if(week.equals("목")) {
+//			return 4;
+//		}
+//		else if(week.equals("금")) {
+//			return 5;
+//		}
+//		else if(week.equals("토")) {
+//			return 6;
+//		}
+//		else
+//			return 0;
+//	}
+	
+	// Switch문으로 변경
 	public int parseDay(String week) {
-		if(week.equals("일")) {
+		switch (week) {
+		case "su":
 			return 0;
-		}
-		else if(week.equals("월")) {
+		case "mo":
 			return 1;
-		}
-		else if(week.equals("화")) {
+		case "tu":
 			return 2;
-		}
-		else if(week.equals("수")) {
+		case "we":
 			return 3;
-		}
-		else if(week.equals("목")) {
+		case "th":
 			return 4;
-		}
-		else if(week.equals("금")) {
+		case "fr":
 			return 5;
-		}
-		else if(week.equals("토")) {
+		case "sa":
 			return 6;
-		}
-		else
+		default:
 			return 0;
+		}
 	}
 	
 	public void runPrompt() throws ParseException {
