@@ -1,5 +1,6 @@
 package yb.calender;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Prompt {
@@ -42,7 +43,7 @@ public class Prompt {
 			return 0;
 	}
 	
-	public void runPrompt() {
+	public void runPrompt() throws ParseException {
 		Scanner scanner = new Scanner(System.in);
 		Calender cal = new Calender();	
 		
@@ -50,7 +51,7 @@ public class Prompt {
 			System.out.println("명령(1,2,3,h,q)");
 			String cmd = scanner.next();
 			if(cmd.equals("1")) {
-				cmdRegister();
+				cmdRegister(scanner, cal);
 			} else if(cmd.equals("2")) {
 				cmdSearch();
 			} else if(cmd.equals("3")) {
@@ -95,12 +96,20 @@ public class Prompt {
 		
 	}
 
-	private void cmdRegister() {
-		// TODO Auto-generated method stub
+	private void cmdRegister(Scanner s, Calender c) throws ParseException {
+		System.out.println("[새 일정 등록]");
+        System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd).");
+        String date = s.next();
+        String text = "";
+        s.nextLine(); //ignore one newline
+        System.out.println("일정을 입력해 주세요.");
+        text = s.nextLine();
+
+        c.registerPlan(date, text);
 		
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		// 셸 실행
 		Prompt p = new Prompt();
