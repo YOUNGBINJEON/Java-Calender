@@ -152,10 +152,13 @@ public class Prompt {
         System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd).");
         String date = s.next();
         String text = "";
-        s.nextLine(); //ignore one newline
-        System.out.println("일정을 입력해 주세요.");
-        text = s.nextLine();
-
+        System.out.println("일정을 입력해 주세요.(끝문자=;)");
+        String word;
+        while(!(word = s.next()).endsWith(";")) {
+        	text += word + " ";
+        }
+        word = word.replace(";", "");
+        text += word;
         c.registerPlan(date, text);
 		
 	}
